@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await auth0.getSession(req, res)
 
   if (!session || !session.user) {
-    return { redirect: { destination: '/api/login', permanent: false } }
+    return { redirect: { destination: '/api/auth/login', permanent: false } }
   }
 
   return { props: { user: session.user } }
